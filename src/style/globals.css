@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Professional typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #1f2937;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+p {
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+/* Light theme body styles */
+body.light-theme {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* Dark theme body styles (for compatibility) */
+body.dark-theme {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Custom scrollbar - Light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e4e6e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #3b82f6, #0ea5e9);
+}
+
+/* Dark theme scrollbar */
+.dark-theme ::-webkit-scrollbar-track {
+  background: #0A0A1A;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00FFFF, #8E44AD);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #8E44AD, #FF0080);
+}
+
+/* Glowing text effects */
+.glow-text {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+.neon-border {
+  border: 1px solid #00FFFF;
+  box-shadow: 0 0 10px #00FFFF, inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+/* Particle effects */
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00FFFF;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #000000 0%, #0A0A1A 50%, #000000 100%);
+}
+
+.neon-gradient-bg {
+  background: linear-gradient(45deg, #00FFFF, #8E44AD, #FF0080, #00FF88);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover effects */
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Loading animation */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* 3D transform utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF;
+  }
+  50% {
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+  
+  .mobile-center {
+    text-align: center;
+  }
+}
+
+/* Selection color - Light theme */
+::selection {
+  background: rgba(30, 64, 175, 0.2);
+  color: #1e293b;
+}
+
+::-moz-selection {
+  background: rgba(30, 64, 175, 0.2);
+  color: #1e293b;
+}
+
+/* Dark theme selection */
+.dark-theme ::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.dark-theme ::-moz-selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Professional light theme utilities */
+.university-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.university-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.university-text-primary {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.university-text-secondary {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.university-text-tertiary {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.university-border {
+  border-color: #e5e7eb;
+}
+
+.university-border-hover:hover {
+  border-color: #3b82f6;
+}
+
+/* Button styles */
+.university-btn-primary {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.university-btn-primary:hover {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.university-btn-secondary {
+  background: white;
+  color: #1e3a8a;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid #1e3a8a;
+  transition: all 0.3s ease;
+}
+
+.university-btn-secondary:hover {
+  background: #1e3a8a;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
